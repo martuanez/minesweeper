@@ -1,0 +1,25 @@
+.game {
+  .game-grid {
+    flex-direction: column;
+    width: 75%;
+  }
+
+  .game-grid, .game-grid__row {
+    display: inline-flex;
+    align-items: stretch;
+  }
+
+  .game-grid__row {
+    flex-direction: row;
+  }
+
+  .game-grid__row, .game-grid__tile  {
+    flex: 1 1 auto;
+    align-self: auto;
+  }
+  
+  .game-grid__tile {
+     display: inline-block;
+     border: 1px solid #efefef;
+   }
+}

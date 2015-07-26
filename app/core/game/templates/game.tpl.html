@@ -1,5 +1,22 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<div class="container text-center game vcenter">
+    <section class="game-score">
+        <div class="row">
+            <div class="col-xs-6">
+                Time left: {{remainingTime}}
+            </div>
+            <div class="col-xs-6">
+                Mines left: {{minesLeft}}
+            </div>
+        </div>
+    </section>
+    <section class="game-grid">
+        <div class="game-grid__row" ng-repeat="row in grid">
+            <div class="game-grid__tile" ng-repeat="tile in row" ng-click="onTileClick(tile)">
+                <span ng-show="!tile.isExposed && !tile.isFlagged">U</span>
+                <span ng-show="!tile.isExposed && tile.isFlagged">F</span>
+                <span ng-show="tile.isExposed && !tile.isLoaded">{{tile.siblingMines}}</span>
+                <span ng-show="tile.isExposed && tile.isLoaded">K</span>
+            </div>
+        </div>
+    </section>
+</div>
