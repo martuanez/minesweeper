@@ -1,21 +1,37 @@
 <div class="container text-center game vcenter">
-    <section class="game-score">
-        <div class="row">
-            <div class="col-xs-6">
-                Time left: {{remainingTime}}
-            </div>
-            <div class="col-xs-6">
-                Mines left: {{minesLeft}}
+    <section class="game-success" ng-show="isGameOver">
+        <h1>{{isGameLost ? 'Game Over' : 'Well played sir! Another one?'}}</h1>
+        <p>Your time is: {{counter}}</p>
+        <nav>
+            <ul>
+                <li><h2><a href="" ng-click="onNewGameClick()">Play Again</a></h2></li>
+            </ul>
+        </nav>
+    </section>
+    <section class="game-playing">
+        <div class="game-score">
+            <div class="row">
+                <div class="col-xs-6">
+                    Flags used: {{minesLeft}}
+                </div>
+                <div class="col-xs-6">
+                    Time spent: {{counter}}
+                </div>
             </div>
         </div>
-    </section>
-    <section class="game-grid">
-        <div class="game-grid__row" ng-repeat="row in grid">
-            <div class="game-grid__tile" ng-repeat="tile in row" ng-click="onTileClick(tile)">
-                <span ng-show="!tile.isExposed && !tile.isFlagged">U</span>
-                <span ng-show="!tile.isExposed && tile.isFlagged">F</span>
-                <span ng-show="tile.isExposed && !tile.isLoaded">{{tile.siblingMines}}</span>
-                <span ng-show="tile.isExposed && tile.isLoaded">K</span>
+        <div class="game-grid">
+            <div class="game-grid__row" ng-repeat="row in grid">
+                <div class="game-grid__tile"
+                     ng-class="[{ pristine: !tile.isExposed && !tile.isFlagged, mined: tile.isExposed && tile.isLoaded }]"
+                     ng-repeat="tile in row"
+                     ng-click="onTileClick(tile)"
+                     ng-right-click="onTileRightClick(tile)">
+                    <span ng-show="!tile.isExposed && tile.isFlagged" class="glyphicon glyphicon-flag">
+                    </span>
+                    <span ng-show="tile.isExposed && !tile.isLoaded">{{tile.siblingMines}}</span>
+                    <span ng-show="tile.isExposed && tile.isLoaded" class="glyphicon glyphicon-asterisk">
+                    </span>
+                </div>
             </div>
         </div>
     </section>

@@ -1,4 +1,10 @@
 html, body {
   height: 100%; }
 
+ul {
+  padding: 0; }
+
+li {
+  list-style-type: none; }
+
 /*# sourceMappingURL=tags.css.map */

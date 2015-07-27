@@ -1,0 +1,39 @@
+.game .game-success {
+  background: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999; }
+.game .game-grid {
+  flex-direction: column;
+  width: 270px; }
+.game .game-score, .game .game-grid {
+  width: 270px;
+  margin: auto; }
+.game .game-grid, .game .game-grid__row {
+  display: inline-flex;
+  align-items: stretch; }
+.game .game-grid__row {
+  flex-direction: row; }
+.game .game-grid__row, .game .game-grid__tile {
+  flex: 1 1 auto;
+  align-self: auto; }
+.game .game-grid__tile {
+  display: inline-block;
+  border: 1px solid #efefef;
+  width: 12.5%;
+  height: 3rem;
+  padding: 0.5rem; }
+  .game .game-grid__tile.pristine {
+    background: white;
+    background: -moz-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+    background: -o-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+    background: -ms-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+    background: linear-gradient(to bottom, white 0%, #f6f6f6 47%, #ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed', GradientType=0); }
+  .game .game-grid__tile.mined {
+    background: red; }
+
+/*# sourceMappingURL=game.styles.css.map */

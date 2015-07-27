@@ -21,7 +21,6 @@ angular.module('mineSweeper.game')
                 currentTile = grid[row][column];
                 if(!currentTile.isLoaded){
                     currentTile.isLoaded = true;
-                    console.log('Loaded', row, column)
                     --mines;
                 }
             }
